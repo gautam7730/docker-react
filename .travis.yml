@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+
+befor_install:
+    - docker build -t gbharti/docker-react -f Dockerfile.dev .
+script:
+  - docker run gbharti/docker-react npm run test -- -- coverage
